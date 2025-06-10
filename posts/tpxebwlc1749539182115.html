@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <title>hành trình tìm lại chúng ta</title>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/webp" href="https://raw.githubusercontent.com/thongdiepyeuthuong/love/main/uploads/1749523465879_love.webp">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; overflow: hidden; background: black; }
+    canvas { display: block; }
+    #loadingText {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 24px;
+      font-family: 'Roboto', sans-serif;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+<div id="loadingText">Đang tải yêu thương...</div>
+
+<script src="https://cdn.jsdelivr.net/gh/dulieublog2/js@main/chukhonggian.js"></script>
+
+<script>
+const jansharenoidung = ["Em yêu anh bé",",","+","Mãi bên nhau bạn nhó","Yêu Minh Hiếu nhứt lun ó","%","#","Hứa được làm ko được là con chóa","Cảm ơn anh đã đến bên em","Nắm tay nhau đi tiếp nha","Chỉ yêu mỗi em thui hong muốn yêu ai nữa đâu :<","Luôn luôn nhớ tới Minh Hiếu đẹp trai lạnh lùng ","Em cần anh lắm á","Bên anh là đủ",">"];
+const imageUrls = [ 'https://raw.githubusercontent.com/thongdiepyeuthuong/love/main/uploads/1749539179145_z6690660593105_8e12691d66e643f44f770d963a2e0c40.jpg' ];
+</script>
+
+<audio id="phatnhac" autoplay muted>
+  <source src="https://nguoiyeucuatoi.github.io/love/onlylove.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  document.addEventListener('click', function () {
+    const audio = document.getElementById('phatnhac');
+    audio.muted = false;
+    audio.play();
+  }, { once: true }); 
+</script>
+
+<script src="https://cdn.jsdelivr.net/gh/nguoiyeucuatoi/love@main/chuchayjanshare2.js"></script>
+</body>
+</html>
