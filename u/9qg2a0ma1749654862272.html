@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <title>chipthui</title>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/webp" href="https://raw.githubusercontent.com/thongdiepyeuthuong/love/main/uploads/1749523465879_love.webp">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; overflow: hidden; background: black; }
+    canvas { display: block; }
+    #loadingText {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 24px;
+      font-family: 'Roboto', sans-serif;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+<div id="loadingText">Đang tải yêu thương...</div>
+
+<script src="https://cdn.jsdelivr.net/gh/dulieublog2/js@main/chukhonggian.js"></script>
+
+<script>
+const jansharenoidung = ["+    ,  Yêu Vy thúi +    ,  ","+    ,  I love stinky Vy+    ,  ","+    ,  J'aime Vy la puante+    ,  ","+    ,  Amo a Vy la apestosa+    ,  ","+    ,  Ich liebe stinkende Vy+    ,  ","+    ,  Amo Vy puzzolente+    ,  ","+    ,  臭いヴィーが大好き+    ,  ","+    ,  나는 냄새나는 Vy를 사랑해+    ,  ","+    ,  Я люблю вонючую Вай+    ,  ","+    ,  我爱臭臭的Vy+    ,  ","+    ,  Eu amo a Vy fedorenta+    ,  ","+    ,  ฉันรักวี่เหม็น+    ,  ","+    ,  मैं बदबूदार व्य से प्यार करता हूँ+    ,  ","+    ,  Jag älskar stinkande Vy+    ,  ","+    ,  Ik hou van stinkende Vy+    ,  ","+    ,  Kokan Vy'yi seviyorum+    ,  ","+    ,  Αγαπώ τη βρωμερή Vy+    ,  ","+    ,  אני אוהב את ווי המסריחה+    ,  ","+    ,  Aku cinta Vy yang bau+    ,  ","+    ,  Kocham śmierdzącą Vy+    ,  "];
+const imageUrls = [ '' ];
+</script>
+
+<audio id="phatnhac" autoplay muted>
+  <source src="https://nguoiyeucuatoi.github.io/love/onlylove.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  document.addEventListener('click', function () {
+    const audio = document.getElementById('phatnhac');
+    audio.muted = false;
+    audio.play();
+  }, { once: true }); 
+</script>
+
+<script src="https://cdn.jsdelivr.net/gh/nguoiyeucuatoi/love@main/chuchayjanshare2.js"></script>
+</body>
+</html>
