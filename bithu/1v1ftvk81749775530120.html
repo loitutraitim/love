@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Gửi em</title>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/webp" href="https://raw.githubusercontent.com/guiyeuthuong/love/main/uploads/1749688410048_favicon.webp">
+  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/guiyeuthuong/love@main/bithu2.css">
+</head>
+<body>
+<span style="font-family: Lobster;"></span>
+<textarea id="noidung" style="display:none;">Yeu em vc</textarea>
+<input type="hidden" id="chuky" value="Tni">
+<input type="hidden" id="linkanh" value="https://raw.githubusercontent.com/thongdiepyeuthuong/love/main/uploads/1749775414955_caf24ef5f7be4fb8a5b5192c92a73ca7_image_repair_1746275878722.jpg">
+
+<div class="button" id="dongthu"><span style="font-family: Lobster;">Đóng thư</span></div>
+<div class="boicanh" id="boicanh">
+  <div id="perspective">
+    <div id="bithu" style="transform: rotateX(0deg) rotateY(0deg) scale(1.4);">
+      <div class="mat truoc">
+        <div id="white">
+          <h1><span style="font-family: Lobster;">Gửi em<br>---</span></h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/guiyeuthuong/love@main/bithu2a.js"></script>
+<audio id="phatnhac" autoplay muted>
+  <source src="https://nguoiyeucuatoi.github.io/love/onlylove.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  document.addEventListener('click', function () {
+    const audio = document.getElementById('phatnhac');
+    audio.muted = false;
+    audio.play();
+  }, { once: true });
+
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.style.left = Math.random() * window.innerWidth + 'px';
+    heart.style.top = '-10px';
+    heart.style.animationDuration = (3 + Math.random() * 2) + 's';
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+  }
+  setInterval(createHeart, 100);
+</script>
+
+</body>
+</html>
