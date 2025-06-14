@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <title>Thúiii iu</title>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/webp" href="https://raw.githubusercontent.com/guiyeuthuong/love/main/uploads/1749688410048_favicon.webp">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; overflow: hidden; background: black; }
+    canvas { display: block; }
+    #loadingText {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 24px;
+      font-family: 'Roboto', sans-serif;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+<div id="loadingText">Đang tải yêu thương...</div>
+
+<script src="https://cdn.jsdelivr.net/gh/dulieublog2/js@main/chukhonggian.js"></script>
+
+<script>
+const jansharenoidung = ["Nhớ anh nhieuuu","Yeu anh nhat the gioiii","Tình iu của emm ","cảm ơn Thúi là đã yêu em ","🫶🏻 ","Dễ thươnggg heee ","Love u forever"];
+const imageUrls = [ 'https://raw.githubusercontent.com/thongdiepyeuthuong/love/main/uploads/1749923602476_IMG_0196.jpeg' ];
+</script>
+
+<audio id="phatnhac" autoplay muted>
+  <source src="https://nguoiyeucuatoi.github.io/love/onlylove.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  document.addEventListener('click', function () {
+    const audio = document.getElementById('phatnhac');
+    audio.muted = false;
+    audio.play();
+  }, { once: true }); 
+</script>
+
+<script src="https://cdn.jsdelivr.net/gh/nguoiyeucuatoi/love@main/chuchayjanshare2.js"></script>
+</body>
+</html>
