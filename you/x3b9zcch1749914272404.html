@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <title>Gửi Bé Bột Nhà Em</title>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/webp" href="https://raw.githubusercontent.com/guiyeuthuong/love/main/uploads/1749688410048_favicon.webp">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; overflow: hidden; background: black; }
+    canvas { display: block; }
+    #loadingText {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 24px;
+      font-family: 'Roboto', sans-serif;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+<div id="loadingText">Đang tải yêu thương...</div>
+
+<script src="https://cdn.jsdelivr.net/gh/dulieublog2/js@main/chukhonggian.js"></script>
+
+<script>
+const jansharenoidung = ["- Cảm ơn anh đã cố gắng vì em trong thời gian qua. Anh đi làm mệt mỏi mà chỉ để chăm lo e đầy đủ, không bao giờ để e tủi thân vào ngày lễ hay kỉ niệm nào. Em thích gì hay muốn gì anh đều đáp ứng hết cho em. ","- Đôi khi chỉ cần em thở dài 1 câu là anh đã biết em không vừa lòng cái gì rồi, và lập tức thực hiện điều đó theo 1 cách khác khiến em hài lòng. ","- Anh cũng không ngần ngại cho em chiếc điện thoại mới mà anh mua và anh sài lại cái cũ của em, nhưng em không đồng ý bởi vì em muốn anh cũng sẽ được những thứ tốt mà anh đã cố gắng ","- Anh luôn cho em những thứ tốt nhất và để bản thân mình những thứ cũ rích, thậm chí còn không giám bỏ tiền ra mua 1 thứ gì cho bản thân anh. Mà em thích cái gì là anh mua không do dự. Coi có đáng yêu không chứ:<<","- Nhưng mà em vẫn muốn Bột nhà em sẽ yêu thương bản thân hơn nè, thay vì để em vui và đẹp hơn thì em vẫn muốn chúng ta cùng vui và cùng đẹp lên cơ.","** Bột nhớ lời Béo dặn nhaaa, cùng nhau cố gắng chứ đừng vì mình em nhooo, Yêu lắm ạaa!! ** ",""];
+const imageUrls = [ 'https://raw.githubusercontent.com/thongdiepyeuthuong/love/main/uploads/1749914251921_IMG_8646.jpeg' ];
+</script>
+
+<audio id="phatnhac" autoplay muted>
+  <source src="https://nguoiyeucuatoi.github.io/love/onlylove.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  document.addEventListener('click', function () {
+    const audio = document.getElementById('phatnhac');
+    audio.muted = false;
+    audio.play();
+  }, { once: true }); 
+</script>
+
+<script src="https://cdn.jsdelivr.net/gh/nguoiyeucuatoi/love@main/chuchayjanshare2.js"></script>
+</body>
+</html>
