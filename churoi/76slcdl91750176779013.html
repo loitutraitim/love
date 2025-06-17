@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <title>gửi bạniuu^^</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/webp" href="https://raw.githubusercontent.com/guiyeuthuong/love/main/uploads/1749688410048_favicon.webp">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css'>
+  <style>
+    body { margin: 0; overflow: hidden; background: black; }
+    canvas { display: block; }
+    #loadingText {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 24px;
+      font-family: 'Roboto', sans-serif;
+      z-index: 1;
+    }
+    .nut-nhac {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 25px;
+      height: 25px;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      backdrop-filter: blur(5px);
+      z-index: 9999;
+      transition: background 0.3s ease;
+    }
+    .nut-nhac i {
+      font-size: 10px;
+    }
+    .nut-nhac:hover {
+      background: rgba(255, 255, 255, 0.85);
+    }
+    .xoayyy {
+      animation: quay 2s linear infinite;
+    }
+    @keyframes quay {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+<div id="loadingText">Đang tải yêu thương...</div>
+<!--
+Những nội dung sau đây sẽ bị xóa khi kiểm duyệt
++ Có ngôn từ thù địch, chống phá nhà nước...
++ Nội dung tục tĩu, trái với thuần phong mỹ tục..
+
+- Page không chịu trách nhiệm với nội dung mà người dùng tạo ra trái với mục đích ban đầu của page
+
+-->
+<script src="https://cdn.jsdelivr.net/gh/dulieublog2/js@main/chukhonggian.js"></script>
+<script>
+  const jansharenoidung = ["yêu bà nhiều lắmmm^^","Tấn Trường","I love you","I miss you","Bảo Trâm iu Tấn Trường nhiều lắm óo><"];
+  const imageUrls = ['https://raw.githubusercontent.com/guiyeuthuong/love/main/uploads/1750177262090_temp_image_07EE3445-F494-43B4-93FE-21D9708BB425.webp'];
+</script>
+
+<audio id="phatnhac" autoplay muted loop>
+  <source src="https://huongai.github.io/nhac/chamvaotimem.mp3" type="audio/mpeg">
+</audio>
+
+<div id="nutNhac" class="nut-nhac" title="Bật/Tắt nhạc">
+  <i class="fas fa-volume-xmark"></i>
+</div>
+
+<script>
+  const phatnhac = document.getElementById('phatnhac');
+  const nutNhac = document.getElementById('nutNhac');
+  const icon = nutNhac.querySelector('i');
+
+  document.addEventListener('click', function () {
+    if (phatnhac.muted) {
+      phatnhac.muted = false;
+      phatnhac.play().then(() => {
+        nutNhac.classList.add('xoayyy');
+        icon.className = 'fas fa-music';
+      }).catch(err => console.error('Lỗi phát nhạc:', err));
+    }
+  }, { once: true });
+
+  nutNhac.addEventListener('click', function (e) {
+    e.stopPropagation();
+    if (phatnhac.paused) {
+      phatnhac.play();
+      nutNhac.classList.add('xoayyy');
+      icon.className = 'fas fa-music';
+    } else {
+      phatnhac.pause();
+      nutNhac.classList.remove('xoayyy');
+      icon.className = 'fas fa-volume-xmark';
+    }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/gh/nguoiyeucuatoi/love@main/chuchayjanshare2.js"></script>
+</body>
+</html>
