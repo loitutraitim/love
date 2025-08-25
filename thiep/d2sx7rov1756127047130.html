@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Bạn có 1 lời nhắn </title>
+ <link rel="icon" type="image/webp" href="https://raw.githubusercontent.com/guiyeuthuong/love/main/uploads/1749688410048_favicon.webp">
+ <meta property="og:image" content="https://raw.githubusercontent.com/guiyeuthuong/love/main/img/thongdiepyeuthuong.png">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(135deg, #ffe6f0, #e6f0ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #clover {
+      cursor: pointer;
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: transform 0.3s ease;
+    }
+    #clover:hover {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+    #hint {
+      position: absolute;
+      top: 58%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 18px;
+      color: #333;
+      animation: blink 1.5s infinite;
+      background: rgba(255,255,255,0.8);
+      padding: 8px 16px;
+      border-radius: 12px;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .card {
+      display: block;
+      opacity: 0;
+      transform: scale(0.8);
+      width: 600px;
+      max-width: 700px;
+      margin: 80px auto;
+      background: linear-gradient(to bottom right, #fffdfd, #ffe6f0);
+      border-radius: 20px;
+      padding: 2px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      transition: opacity 1s ease, transform 1s ease;
+      pointer-events: none;
+      position: relative;
+      overflow: hidden;
+      border: 3px solid #ffb6c1;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-image: url('https://www.transparenttextures.com/patterns/white-wall.png');
+      opacity: 0.1;
+      pointer-events: none;
+    }
+    .card.show {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
+    }
+    .card-inner {
+      position: relative;
+      padding: 30px;
+      z-index: 2;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      color: #d63384;
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .message {
+      font-size: 20px;
+      color: #333;
+      text-align: left;
+      padding-left: 20px;
+      line-height: 1.6;
+      min-height: 100px;
+      white-space: pre-wrap;
+    }
+
+    .message .line {
+      font-size: 20px;
+      font-family: 'Quicksand', sans-serif;
+      display: inline-block;
+    }
+
+    .message .line::before {
+      content: "🌸 ";
+    }
+
+    .signature {
+      margin-top: 40px;
+      font-size: 18px;
+      color: #666;
+      font-style: italic;
+      text-align: right;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: fall 5s linear infinite;
+      opacity: 0.8;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before { top: -10px; left: 0; }
+    .heart::after { top: 0; left: -10px; }
+
+    @keyframes fall {
+      to { transform: translateY(100vh) rotate(45deg); }
+    }
+
+    .music-btn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ff4081;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .music-btn.rotating {
+      animation: rotate 2s linear infinite;
+    }
+
+    @keyframes rotate {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+<img id="clover" src="https://raw.githubusercontent.com/guiyeuthuong/love/main/uploads/1750069956366_goodluck.webp" alt="Cỏ 4 lá" title="Nhấn vào để mở thiệp">
+<div id="hint">Nhấn vào cỏ 4 lá để mở thiệp 🍀</div>
+
+<div class="card" id="card">
+  <div class="card-inner">
+    <h1>💗🎓 Chúc bạn thi tốt 🎓💗</h1>
+    <div class="message" id="typewriter"></div>
+    <div class="signature">— Gửi từ 💗</div>
+  </div>
+</div>
+
+<audio id="bgmusic" loop>
+  <source src="https://huongai.github.io/nhac/chucbanthitot.mp3" type="audio/mpeg">
+</audio>
+<button class="music-btn" id="musicBtn">🎵</button>
+<script>  const msg = '';</script>
+<script>
+
+  const speed = 60;
+  let i = 0;
+
+  function typeWriter() {
+    const container = document.getElementById("typewriter");
+    let spanEls = container.getElementsByClassName("line");
+
+    if (spanEls.length === 0) {
+      const firstSpan = document.createElement("span");
+      firstSpan.className = "line";
+      container.appendChild(firstSpan);
+      spanEls = container.getElementsByClassName("line");
+    }
+
+    if (i < msg.length) {
+      const char = msg.charAt(i);
+      if (char === '\n') {
+        const newSpan = document.createElement("span");
+        newSpan.className = "line";
+
+      } else {
+        const lastSpan = spanEls[spanEls.length - 1];
+        lastSpan.textContent += char;
+      }
+      i++;
+      setTimeout(typeWriter, speed);
+    }
+  }
+
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+  }
+
+  document.getElementById("clover").onclick = () => {
+    document.getElementById("clover").style.display = "none";
+    document.getElementById("hint").style.display = "none";
+
+    const card = document.getElementById("card");
+    card.classList.add("show");
+
+    document.getElementById("musicBtn").style.display = "block";
+    music.play();
+    musicBtn.classList.add("rotating");
+    isPlaying = true;
+
+    setInterval(createHeart, 300);
+    setTimeout(typeWriter, 2000);
+  };
+
+  const music = document.getElementById("bgmusic");
+  const musicBtn = document.getElementById("musicBtn");
+  let isPlaying = false;
+
+  musicBtn.onclick = function () {
+    if (isPlaying) {
+      music.pause();
+      musicBtn.classList.remove("rotating");
+    } else {
+      music.play();
+      musicBtn.classList.add("rotating");
+    }
+    isPlaying = !isPlaying;
+  };
+</script>
+
+</body>
+</html>
